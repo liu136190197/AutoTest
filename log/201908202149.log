@@ -1,0 +1,70 @@
+2019-08-20 21:49:22,678 - Browser - INFO - Starting browser:<selenium.webdriver.chrome.webdriver.WebDriver (session="4ad88b886c2239ef267656e968c9ba23")>
+2019-08-20 21:49:26,422 - Browser - INFO - find_element succeed: xpath, //*[@id='dataForm']/div[1]/input
+2019-08-20 21:49:26,627 - Browser - INFO - find_element succeed: xpath, //*[@id='dataForm']/div[2]/input
+2019-08-20 21:49:26,920 - Browser - INFO - find_element succeed: xpath, //div[2]/span[text()='登录']
+2019-08-20 21:49:28,145 - Browser - INFO - get_cookies {'domain': '10.39.131.201', 'httpOnly': True, 'name': 'JSESSIONID', 'path': '/parking/', 'secure': False, 'value': '1A9AD57ADE87210B75656D671A9C54A3'}
+2019-08-20 21:49:28,202 - Browser - INFO - 登陆成功，开始测试
+2019-08-20 21:49:28,302 - Browser - INFO - find_element succeed: xpath, //span[contains(string(),'业务管理')]
+2019-08-20 21:49:30,006 - Browser - INFO - find_element succeed: xpath, //span[contains(text(),'月租车辆管理')]
+2019-08-20 21:49:30,144 - Browser - INFO - The element was clicked：月租车辆管理
+2019-08-20 21:49:30,667 - Browser - INFO - find_element succeed: css selector, span#monthAdd.btn.addnew
+2019-08-20 21:49:31,683 - Browser - INFO - The element was clicked：新增
+2019-08-20 21:49:32,206 - Browser - INFO - switch_to_frame succeed: openDialogTarget
+2019-08-20 21:49:32,234 - Browser - INFO - find_element succeed: xpath, //*[@id='carNo']
+2019-08-20 21:49:32,247 - Browser - INFO - execute_script document.getElementById('carNo').value = '粤Z12306'
+2019-08-20 21:49:32,271 - Browser - INFO - find_element succeed: xpath, //*[@id='addCust']
+2019-08-20 21:49:33,024 - Browser - INFO - The element was clicked：
+2019-08-20 21:49:33,544 - Browser - INFO - switch_to_frame succeed: openDialogTarget
+2019-08-20 21:49:33,571 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabBody']/tr[6]/td[1]/input
+2019-08-20 21:49:33,881 - Browser - INFO - The element was clicked：
+2019-08-20 21:49:34,413 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabCustomer']/span
+2019-08-20 21:49:34,649 - Browser - INFO - The element was clicked：杨秀平
+2019-08-20 21:49:34,673 - Browser - INFO - find_element succeed: xpath, //*[@id='okBtn']
+2019-08-20 21:49:34,958 - Browser - INFO - The element was clicked：确 定
+2019-08-20 21:49:35,459 - Browser - INFO - switch_to
+2019-08-20 21:49:35,492 - Browser - INFO - find_element succeed: xpath, //*[@id='invoice']
+2019-08-20 21:49:35,701 - Browser - INFO - Had type ' 111 ' in inputBox
+2019-08-20 21:49:35,728 - Browser - INFO - find_element succeed: xpath, //*[@id='submitBtn']
+2019-08-20 21:49:35,943 - Browser - INFO - The element was clicked：新增保存 费用：1111.0元
+2019-08-20 21:49:35,977 - Browser - INFO - find_element succeed: xpath, //*[@id='sure']
+2019-08-20 21:49:36,324 - Browser - ERROR - Failed to click the element with Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=76.0.3809.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17763 x86_64)
+
+2019-08-20 21:49:36,356 - Browser - INFO - find_element succeed: xpath, //input[@placeholder = '车牌号码']
+2019-08-20 21:49:36,649 - Browser - INFO - Had type ' 粤Z12306 ' in inputBox
+2019-08-20 21:49:36,671 - Browser - INFO - find_element succeed: xpath, //span/span[@name = 'queryBtn']
+2019-08-20 21:49:36,832 - Browser - INFO - The element was clicked：搜索
+2019-08-20 21:49:36,933 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabBody']//a[text()='粤Z12306']
+2019-08-20 21:49:37,079 - Browser - INFO - 测试完成，返回主页
+2019-08-20 21:49:37,159 - Browser - INFO - find_element succeed: xpath, //span[contains(string(),'业务管理')]
+2019-08-20 21:49:38,669 - Browser - INFO - find_element succeed: xpath, //span[contains(text(),'月租车辆管理')]
+2019-08-20 21:49:38,821 - Browser - INFO - The element was clicked：月租车辆管理
+2019-08-20 21:49:39,346 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabBody']/tr[1]/td[1]/a
+2019-08-20 21:49:39,375 - Browser - INFO - Get text in input box :陈皓莹
+2019-08-20 21:49:39,403 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabBody']/tr[1]/td[2]/a
+2019-08-20 21:49:39,434 - Browser - INFO - Get text in input box :浣涛阁206房
+2019-08-20 21:49:39,462 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabBody']/tr[1]/td[3]/a
+2019-08-20 21:49:39,492 - Browser - INFO - Get text in input box :粤BTTY23
+2019-08-20 21:49:39,520 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabBody']/tr[1]/td[5]
+2019-08-20 21:49:39,551 - Browser - INFO - Get text in input box :2019-09-14 23:59:59
+2019-08-20 21:49:39,572 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabBody']/tr[1]/td[6]
+2019-08-20 21:49:39,597 - Browser - INFO - Get text in input box :月租A
+2019-08-20 21:49:39,614 - Browser - INFO - find_element succeed: xpath, //input[@placeholder = '车牌号码']
+2019-08-20 21:49:39,802 - Browser - INFO - Had type ' 粤BTTY23 ' in inputBox
+2019-08-20 21:49:39,843 - Browser - INFO - find_element succeed: xpath, //input[@placeholder = '客户姓名']
+2019-08-20 21:49:39,981 - Browser - INFO - Had type ' 陈皓莹 ' in inputBox
+2019-08-20 21:49:40,008 - Browser - INFO - find_element succeed: xpath, //input[@placeholder = '房屋地址']
+2019-08-20 21:49:40,147 - Browser - INFO - Had type ' 浣涛阁206房 ' in inputBox
+2019-08-20 21:49:40,172 - Browser - INFO - find_element succeed: xpath, //input[@placeholder = '到期开始时间']
+2019-08-20 21:49:40,517 - Browser - INFO - Had type ' 2019-09-14 ' in inputBox
+2019-08-20 21:49:40,541 - Browser - INFO - find_element succeed: xpath, // *[ @ id = 'searchSpan'] // select[ @ name = 'monthTypeId'] / option[text() = '月租A']
+2019-08-20 21:49:40,632 - Browser - INFO - The element was clicked：月租A
+2019-08-20 21:49:40,650 - Browser - INFO - find_element succeed: xpath, //span/span[@name = 'queryBtn']
+2019-08-20 21:49:40,787 - Browser - INFO - The element was clicked：搜索
+2019-08-20 21:49:41,808 - Browser - INFO - find_element succeed: xpath, //*[@id='listTabBody']//a[text()='粤BTTY23']
+2019-08-20 21:49:41,946 - Browser - INFO - 测试完成，返回主页
+2019-08-20 21:49:42,105 - Browser - INFO - 测试完成，返回主页
+2019-08-20 21:49:42,303 - Browser - INFO - 测试完成，返回主页
+2019-08-20 21:49:44,793 - Browser - INFO - driver.quit
+2019-08-20 21:49:44,793 - Browser - INFO - 测试结束，关闭浏览器
