@@ -14,20 +14,41 @@ class Test_Smoke(MyTest):
         configall = ConfigAll()
         #删除账户信息：autotest
         configall.config_database("DELETE FROM sys_user WHERE user_name = '%s'" % ('autotest'))
-        #删除车位信息：AUTO_001
-        #删除设备：autotest设备
-        #删除车道：autotest车道（入)、autotest车道（出)
-        #删除出入口：autotest出入口
-        #删除区域：autotest区域
-        #删除月租车辆类型：月租(autotest)
-        #删除储值车辆类型：储值(autotest)
-        #删除白名单类型：白名单(autotest)
-        #删除月租车：粤ZDH001
-        #删除预约车：粤ZDH010
-        #删除储值车：粤ZDH020
-        #删除白名单：粤ZDH030
-        #删除黑名单：粤ZDH040
-        #删除灰名单：粤ZDH050
+        # 删除车位信息：AUTO_001
+        configall.config_database("DELETE FROM pl_parking_space WHERE code = '%s'" % ('AUTO_001'))
+        # 删除设备：autotest设备
+        configall.config_database("DELETE FROM pl_device WHERE name = '%s'" % ('autotest设备'))
+        # 删除车道：autotest车道（入)、autotest车道（出)
+        configall.config_database(
+            "DELETE FROM pl_lane WHERE name = '%s' or name = '%s'" % ('autotest车道（入)', 'autotest车道（出)'))
+        # 删除出入口：autotest出入口
+        configall.config_database("DELETE FROM pl_station WHERE name = '%s'" % ('autotest出入口'))
+        # 删除区域：autotest区域
+        configall.config_database("DELETE FROM pl_area WHERE name = '%s'" % ('autotest区域'))
+        # 删除月租车：粤ZDH001
+        configall.config_database(
+            "DELETE FROM pl_month_cars WHERE cars_id IN (SELECT id FROM pl_cars WHERE car_no = '%s')" % ('粤ZDH001'))
+        configall.config_database("DELETE FROM pl_cars WHERE car_no = '%s'" % ('粤ZDH001'))
+        # 删除预约车：粤ZDH010
+        configall.config_database("DELETE FROM pl_reserve WHERE car_no = '%s'" % ('粤ZDH010'))
+        # 删除储值车：粤ZDH020
+        configall.config_database(
+            "DELETE FROM pl_deposit_cars WHERE cars_id IN (SELECT id FROM pl_cars WHERE car_no = '%s')" % ('粤ZDH020'))
+        configall.config_database("DELETE FROM pl_cars WHERE car_no = '%s'" % ('粤ZDH020'))
+        # 删除白名单：粤ZDH030
+        configall.config_database("DELETE FROM pl_white WHERE car_no = '%s'" % ('粤ZDH030'))
+        # 删除黑名单：粤ZDH040
+        configall.config_database("DELETE FROM pl_black WHERE car_no = '%s'" % ('粤ZDH040'))
+        # 删除灰名单：粤ZDH050
+        configall.config_database("DELETE FROM pl_gray WHERE car_no = '%s'" % ('粤ZDH050'))
+        # 删除月租车辆类型：月租(autotest)
+        configall.config_database("DELETE FROM pl_month_type WHERE name = '%s'" % ('月租(autotest)'))
+        # 删除储值车辆类型：储值(autotest)
+        configall.config_database("DELETE FROM pl_deposit_type WHERE name = '%s'" % ('储值(autotest)'))
+        # 删除白名单类型：白名单(autotest)
+        configall.config_database("DELETE FROM pl_white_type WHERE name = '%s'" % ('白名单(autotest)'))
+        # 删除计费类型：计费(autotest)
+        configall.config_database("DELETE FROM pl_fee_rule_config WHERE name = '%s'" % ('计费(autotest)'))
 
     def test_case11(self):
         '''添加账户'''
@@ -217,20 +238,15 @@ class Test_Smoke(MyTest):
         driver = self.driver
         driver.open_menu('业务管理', '业务办理')
         driver.click(By.XPATH, "//span[contains(text(),'月租车辆管理')]")
-        sleep(0.5)
         driver.click(By.CSS_SELECTOR, "span#monthAdd.btn.addnew")
-        sleep(0.5)
         driver.switch_to_frame("openDialogTarget")
         driver.find_element(By.XPATH, "//*[@id='carNo']")
         driver.execute_script("document.getElementById('carNo').value = '粤ZDH001'")
         driver.click(By.XPATH, "//*[@id='addCust']")
-        sleep(0.5)
         driver.switch_to_frame("openDialogTarget")
         driver.click(By.XPATH, "//*[@id='listTabBody']/tr[6]/td[1]/input")
-        sleep(0.5)
         driver.click(By.XPATH, "//*[@id='listTabCustomer']/span")
         driver.click(By.XPATH, "//*[@id='okBtn']")
-        sleep(0.5)
         driver.switch_to().parent_frame()
         driver.send_keys(By.XPATH, "//*[@id='invoice']", text="111")
         driver.click(By.XPATH, "//*[@id='submitBtn']")
@@ -243,16 +259,13 @@ class Test_Smoke(MyTest):
         driver = self.driver
         driver.open_menu('业务管理', '业务办理')
         driver.click(By.XPATH, "//span[contains(text(),'预约车辆管理')]")
-        sleep(0.5)
         driver.click(By.CSS_SELECTOR, "span#reserveAdd.btn.addnew")
-        sleep(0.5)
         driver.switch_to_frame("openDialogTarget")
         driver.find_element(By.XPATH, "//*[@id='carNo']")
         driver.execute_script("document.getElementById('carNo').value = '粤ZDH010'")
         driver.send_keys(By.XPATH, "//input[@name = 'visitor' and @placeholder = '访客姓名']", text="autotest")
         driver.send_keys(By.XPATH, "//input[@name = 'mainMobile' and @placeholder = '手机号码']", text="13666666666")
         driver.click(By.XPATH, "//*[@id='addCust']")
-        sleep(0.5)
         driver.switch_to_frame("openDialogTarget")
         driver.click(By.XPATH, "//*[@id='vistorContent']/div[2]//span[1]")
         driver.click(By.XPATH, "//*[@id='vistorContent']/div[2]//span[1]")
@@ -260,7 +273,6 @@ class Test_Smoke(MyTest):
         driver.click(By.XPATH, "//*[@id='vistorContent']/div[2]//span[1]")
         driver.click(By.XPATH, "//*[@id='vistorContent']/div[2]//span[1]")
         driver.click(By.XPATH, "//*[@id='okBtn']")
-        sleep(0.5)
         driver.switch_to().parent_frame()
         driver.click(By.XPATH, "//*[@id='submitBtn']")
         a = driver.find_element(By.XPATH, "//*[@id='listTabBody']//td[text()='粤ZDH010']")
@@ -271,21 +283,16 @@ class Test_Smoke(MyTest):
         driver = self.driver
         driver.open_menu('业务管理', '业务办理')
         driver.click(By.XPATH, "//span[contains(text(),'储值车辆管理')]")
-        sleep(0.5)
         driver.click(By.XPATH, "//span[contains(text(),'新增')]")
-        sleep(0.5)
         driver.switch_to_frame("openDialogTarget")
         driver.find_element(By.XPATH, "//*[@id='carNo']")
         driver.execute_script("document.getElementById('carNo').value = '粤ZDH020'")
         driver.send_keys(By.XPATH, "//textarea[@name = 'remarks' and @placeholder = '备注']", text="autotest")
         driver.click(By.XPATH, "//*[@id='addCust']")
-        sleep(0.5)
         driver.switch_to_frame("openDialogTarget")
         driver.click(By.XPATH, "//*[@id='listTabBody']/tr[6]/td[1]/input")
-        sleep(0.5)
         driver.click(By.XPATH, "//*[@id='listTabCustomer']/span")
         driver.click(By.XPATH, "//*[@id='okBtn']")
-        sleep(0.5)
         driver.switch_to().parent_frame()
         driver.click(By.XPATH, "//*[@id='submitBtn']")
         a = driver.find_element(By.XPATH, "//*[@id='listTabBody']//td[text()='粤ZDH020']")
@@ -296,9 +303,7 @@ class Test_Smoke(MyTest):
         driver = self.driver
         driver.open_menu('业务管理', '业务办理')
         driver.click(By.XPATH, "//span[contains(text(),'白名单管理')]")
-        sleep(0.5)
         driver.click(By.XPATH, "//span[contains(text(),'新增')]")
-        sleep(0.5)
         driver.switch_to_frame("openDialogTarget")
         driver.find_element(By.XPATH, "//*[@id='carNo']")
         driver.execute_script("document.getElementById('carNo').value = '粤ZDH030'")
@@ -321,9 +326,7 @@ class Test_Smoke(MyTest):
         driver = self.driver
         driver.open_menu('业务管理', '业务办理')
         driver.click(By.XPATH, "//span[contains(text(),'黑名单管理')]")
-        sleep(0.5)
         driver.click(By.XPATH, "//span[contains(text(),'新增')]")
-        sleep(0.5)
         driver.switch_to_frame("openDialogTarget")
         driver.find_element(By.XPATH, "//*[@id='carNo']")
         driver.execute_script("document.getElementById('carNo').value = '粤ZDH040'")
