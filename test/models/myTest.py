@@ -16,7 +16,7 @@ class MyTest(unittest.TestCase):
     def setUp(self):
         pass
     def tearDown(self):
-        self.driver.open("http://10.39.131.201:8079/parking/home")
+        self.driver.open("http://192.168.1.1:8080/home")
         logger.info("测试完成，返回主页")
     @classmethod
     def tearDownClass(cls):

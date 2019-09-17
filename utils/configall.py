@@ -16,9 +16,9 @@ class ConfigAll():
         # print(file_path)
         return config
     def config_database(self,sql=None):
-        db = pymysql.connect(host='10.39.131.201', port=3307, user='user',
+        db = pymysql.connect(host='192.168.1.1', port=3306, user='user',
                                password='password',
-                               db='parking1', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+                               db='parking', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
         cursor = db.cursor()
         try:
             cursor.execute(sql)

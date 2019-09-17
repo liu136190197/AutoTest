@@ -19,7 +19,7 @@ class BasePage(object):
     def open(self,base_url):
         self.driver.get(base_url)
         self.driver.maximize_window()
-        self.driver.implicitly_wait(20)
+        self.driver.implicitly_wait(10)
     #退出浏览器
     def quit_browser(self):
         self.driver.quit()
